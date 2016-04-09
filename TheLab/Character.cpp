@@ -45,6 +45,6 @@ void Character::Render()
 	// Enter logic here shared by all characters
 
 #pragma endregion
-
+	return;
 }
 
