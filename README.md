@@ -3,12 +3,12 @@ The Lab
 
 Members:
 - Aksel - Lead Programmer
-- Andrew - Lead Designer
-- Tyrell - 
-- Radu - 
+- Andrew - Designer / Programmer
+- Tyrell - Programmer / Asset Manager
+- Radu - Programmer / QA
 
 To-do:
-- 
+- ANDREW FILL THIS IN PLEASE :3
 
 Completed:
 - 
