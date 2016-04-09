@@ -8,7 +8,12 @@ Members:
 - Radu - Programmer / QA
 
 To-do:
-- ANDREW FILL THIS IN PLEASE :3
+- Static Mesh Component
+- Collision Component (May need multiple types e.g. sphere, cube)
+- Input Component (Move with WASD keys, manipulate camera with mouse)
+- Primitive Class
+- UI class
+- Rigid Body Component (Stretch Goal, objects can be effected by gravity)
 
 Completed:
 - 
