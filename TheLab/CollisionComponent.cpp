@@ -9,8 +9,6 @@ CollisionComponent::CollisionComponent()
 CollisionComponent::~CollisionComponent()
 {
 }
-<<<<<<< HEAD
-=======
 
 void CollisionComponent::setLabel(Label newLabel)
 {
@@ -31,4 +29,3 @@ D3DXVECTOR3 CollisionComponent::getOffset()
 {
 	return offset;
 }
->>>>>>> Andrew
