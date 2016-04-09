@@ -34,7 +34,7 @@ void GameObject::Update(float dt)
 void GameObject::Render()
 {
 	// Does not render if GameObject is not active or not visible
-	if (!getActive || !getVisible)
+	if (!getActive() || !getVisible())
 	{
 		return;
 	}
