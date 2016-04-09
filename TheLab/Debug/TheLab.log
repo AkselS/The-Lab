@@ -1,7 +1,7 @@
-﻿Build started 09/04/2016 20:05:45.
+﻿Build started 09/04/2016 22:12:04.
      1>Project "C:\Users\andre_000\Desktop\The-Lab\TheLab\TheLab.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Character.cpp CollisionComponent.cpp RenderingComponent.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CollisionManager.cpp RenderingComponent.cpp
          RenderingComponent.cpp
          c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
      1>c:\users\andre_000\desktop\the-lab\thelab\renderingcomponent.cpp(46): error C2659: '=' : function as left operand
@@ -9,7 +9,7 @@
                  c:\users\andre_000\desktop\the-lab\thelab\cameracomponent.h(7) : see declaration of 'Camera'
      1>c:\users\andre_000\desktop\the-lab\thelab\renderingcomponent.cpp(131): error C2039: 'GetViewMatrix' : is not a member of 'Camera'
                  c:\users\andre_000\desktop\the-lab\thelab\cameracomponent.h(7) : see declaration of 'Camera'
-         CollisionComponent.cpp
+         CollisionManager.cpp
      1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092) : see previous definition of 'DXGI_STATUS_OCCLUDED'
      1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
@@ -58,10 +58,11 @@
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50445) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
      1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
                  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-         Character.cpp
+     1>c:\users\andre_000\desktop\the-lab\thelab\collisionmanager.cpp(21): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andre_000\desktop\the-lab\thelab\collisionmanager.cpp(23): warning C4018: '<' : signed/unsigned mismatch
          Generating Code...
      1>Done Building Project "C:\Users\andre_000\Desktop\The-Lab\TheLab\TheLab.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:06.69
+Time Elapsed 00:00:04.68
