@@ -15,14 +15,12 @@ private:
 	void initViewMatrix();
 
 public:
-	void InitProjMatrix(const float angle, const float client_width, const float client_height,
-		const float nearest, const float farthest);
-	void InitOrthoMatrix(const float client_width, const float client_height,
-		const float near_plane, const float far_plane);
+	void InitProjMatrix(const float angle, const float client_width, const float client_height, const float nearest, const float farthest);
+	void InitOrthoMatrix(const float client_width, const float client_height, const float near_plane, const float far_plane);
 
 	void OnResize(uint32_t new_width, uint32_t new_height);
 
-
+	void SetViewMatrix(D3DXMATRIX viewMatrix);
 
 	void Move(XMFLOAT3 direction);
 	void Rotate(XMFLOAT3 axis, float degrees);
@@ -56,7 +54,7 @@ private:
 	float vNearest;
 	float vFarthest;
 
-	XMFLOAT4X4  mView;
-	XMFLOAT4X4	mProj;
-	XMFLOAT4X4	mOrtho;
+	XMFLOAT4X4 mView;
+	XMFLOAT4X4 mProj;
+	XMFLOAT4X4 mOrtho;
 };

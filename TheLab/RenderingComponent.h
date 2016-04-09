@@ -6,6 +6,7 @@
 #include "CameraComponent.h"
 #include "StaticMeshComponent.h"
 #include "TextureShader.h"
+#include "D3DComponent.h"
 
 const bool FULL_SCREEN = true;
 const bool VSYNC_ENABLED = true;
@@ -27,6 +28,7 @@ private:
 	bool Render(float);
 
 private:
+	D3DComponent* D3D;
 	Camera* camera;
 	StaticMeshComponent* mesh1;
 };
