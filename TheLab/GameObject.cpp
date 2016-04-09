@@ -44,7 +44,7 @@ void GameObject::Render()
 	// Enter logic here shared by all GameObject
 
 #pragma endregion
-
+	return;
 }
 
 void GameObject::setActive(bool active)

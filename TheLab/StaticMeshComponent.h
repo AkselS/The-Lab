@@ -22,31 +22,14 @@ public:
 	StaticMeshComponent(const StaticMeshComponent&);
 	~StaticMeshComponent();
 
-	bool Initialize(ID3D11Device*, char*, WCHAR*);
+	bool Initialise(ID3D11Device*, char*, WCHAR*);
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
 	int GetIndexCount();
 	ID3D11ShaderResourceView* GetTexture();
 
-
-
 private:
-	bool InitializeBuffers(ID3D11Device*);
-	void ShutdownBuffers();
-	void RenderBuffers(ID3D11DeviceContext*);
-
-	bool LoadTexture(ID3D11Device*, WCHAR*);
-	void ReleaseTexture();
-
-	bool LoadModel(char*);
-	void ReleaseModel();
-
-	ID3D11Buffer *vertexBuffer, *indexBuffer;
-	int vertexCount, indexCount;
-	TextureComponent* texture;
-	StaticMeshComponent* mesh1;
-
 	struct VertexType
 	{
 		D3DXVECTOR3 position;
@@ -61,6 +44,20 @@ private:
 		float nx, ny, nz;
 	};
 
+	bool InitialiseBuffers(ID3D11Device*);
+	void ShutdownBuffers();
+	void RenderBuffers(ID3D11DeviceContext*);
+
+	bool LoadTexture(ID3D11Device*, WCHAR*);
+	void ReleaseTexture();
+
+	bool LoadModel(char*);
+	void ReleaseModel();
+
+	ID3D11Buffer *vertexBuffer, *indexBuffer;
+	int vertexCount, indexCount;
+	TextureComponent* texture;
+	Model* mesh;
 };
 
 #endif

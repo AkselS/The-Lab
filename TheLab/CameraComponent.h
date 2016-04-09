@@ -20,7 +20,7 @@ public:
 
 	void OnResize(uint32_t new_width, uint32_t new_height);
 
-	void SetViewMatrix(D3DXMATRIX viewMatrix);
+	void GetViewMatrix(D3DXMATRIX* viewMatrix);
 
 	void Move(XMFLOAT3 direction);
 	void Rotate(XMFLOAT3 axis, float degrees);
@@ -32,8 +32,6 @@ public:
 	const XMFLOAT3 LookAtTarget() { return MathVF(MathFV(cTarget) - MathFV(cPosition)); }
 	const XMFLOAT4X4 View() { return MathMF(XMMatrixTranspose(MathFM(mView))); }
 
-
-
 	void Angle(float angle);
 	const float& Angle() const { return cAngle; }
 
@@ -42,6 +40,8 @@ public:
 
 	const XMFLOAT4X4 Proj() { return MathMF(XMMatrixTranspose(MathFM(mProj))); }
 	const XMFLOAT4X4 Ortho() { return MathMF(XMMatrixTranspose(MathFM(mOrtho))); }
+
+	void Render();
 
 private:
 	XMFLOAT3 cPosition;

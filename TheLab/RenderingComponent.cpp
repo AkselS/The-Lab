@@ -42,8 +42,12 @@ bool RenderingComponent::Initialise(int screenWidth, int screenHeight, HWND hwnd
 		return false;
 	}
 
+	XMFLOAT3 newPos;
+	newPos.x = 0.0f;
+	newPos.y = 0.0f;
+	newPos.z = -10.0f;
 	// Set the initial position of the camera.
-	camera->Position = (0.0f, 0.0f, -10.0f);
+	camera->Position(newPos);
 
 	// Create the model object.
 	mesh1 = new StaticMeshComponent;
@@ -52,7 +56,7 @@ bool RenderingComponent::Initialise(int screenWidth, int screenHeight, HWND hwnd
 		return false;
 	}
 
-	result = mesh1->Initialize(D3D->GetDevice(), "cube.txt", L"assets/textures/test.dds");
+	result = mesh1->Initialise(D3D->GetDevice(), "cube.txt", L"assets/textures/test.dds");
 	if (!result)
 	{
 		MessageBox(hwnd, "Could not initialize the mesh.", "Error", MB_OK);
@@ -120,7 +124,6 @@ bool RenderingComponent::Render(float rotation)
 	D3DXMATRIX worldMatrix, viewMatrix, projectionMatrix;
 	bool result;
 
-
 	// Clear the buffers to begin the scene.
 	D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 
@@ -128,7 +131,7 @@ bool RenderingComponent::Render(float rotation)
 	camera->Render();
 
 	// Get the world, view, and projection matrices from the camera and d3d objects.
-	camera->GetViewMatrix(viewMatrix);
+	camera->GetViewMatrix(&viewMatrix);
 	D3D->GetWorldMatrix(worldMatrix);
 	D3D->GetProjectionMatrix(projectionMatrix);
 
