@@ -1,6 +1,7 @@
-#include<Windows.h>
-#include<memory>
-#include"Game.h"
+#include <Windows.h>
+#include <memory>
+
+#include "Game.h"
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message,
 	WPARAM wParam, LPARAM lParam);

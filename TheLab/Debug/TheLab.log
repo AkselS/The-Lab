@@ -1,14 +1,15 @@
-﻿Build started 09-Apr-16 3:09:56 PM.
-     1>Project "L:\TheLab\TheLab\TheLab.vcxproj" on node 2 (Build target(s)).
+﻿Build started 09-Apr-16 10:31:46 PM.
+     1>Project "C:\Users\AkselS\Documents\GitHub\The-Lab\TheLab\TheLab.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          I:\Program Files\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Character.cpp GameObject.cpp
          GameObject.cpp
          Character.cpp
          Generating Code...
        Link:
-         I:\Program Files\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"L:\TheLab\Debug\TheLab.exe" /INCREMENTAL /NOLOGO d3d11.lib d3dx11.lib dxerr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"L:\TheLab\Debug\TheLab.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"L:\TheLab\Debug\TheLab.lib" /MACHINE:X86 Debug\CameraComponent.obj
+         I:\Program Files\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\AkselS\Documents\GitHub\The-Lab\Debug\TheLab.exe" /INCREMENTAL /NOLOGO d3d11.lib d3dx11.lib dxerr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\AkselS\Documents\GitHub\The-Lab\Debug\TheLab.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\AkselS\Documents\GitHub\The-Lab\Debug\TheLab.lib" /MACHINE:X86 Debug\CameraComponent.obj
          Debug\Character.obj
          Debug\CollisionComponent.obj
+         Debug\D3DComponent.obj
          Debug\Game.obj
          Debug\DX11Base.obj
          Debug\GameObject.obj
@@ -21,13 +22,16 @@
          Debug\Player.obj
          Debug\PlayerState.obj
          Debug\Playing.obj
+         Debug\RenderingComponent.obj
          Debug\State.obj
          Debug\StaticMeshComponent.obj
+         Debug\TextureComponent.obj
+         Debug\TextureShader.obj
          Debug\Util.obj
          Debug\Walking.obj
-         TheLab.vcxproj -> L:\TheLab\Debug\TheLab.exe
-     1>Done Building Project "L:\TheLab\TheLab\TheLab.vcxproj" (Build target(s)).
+         TheLab.vcxproj -> C:\Users\AkselS\Documents\GitHub\The-Lab\Debug\TheLab.exe
+     1>Done Building Project "C:\Users\AkselS\Documents\GitHub\The-Lab\TheLab\TheLab.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.98
+Time Elapsed 00:00:02.10

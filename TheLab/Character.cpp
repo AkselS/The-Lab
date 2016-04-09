@@ -32,7 +32,7 @@ void Character::Update(float dt)
 void Character::Render()
 {
 	// Does not render if GameObject is not active or not visible
-	if (!getActive || !getVisible)
+	if (!getActive() || !getVisible())
 	{
 		return;
 	}
@@ -45,6 +45,6 @@ void Character::Render()
 	// Enter logic here shared by all characters
 
 #pragma endregion
-
+	return;
 }
 
