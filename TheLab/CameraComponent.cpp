@@ -143,3 +143,8 @@ void Camera::OnResize(uint32_t new_width, uint32_t new_height)
 	InitProjMatrix(cAngle, static_cast<float>(new_width), static_cast<float>(new_height), vNearest, vFarthest);
 	InitOrthoMatrix(static_cast<float>(new_width), static_cast<float>(new_height), 0.0f, vFarthest);
 }
+
+void Camera::SetViewMatrix(D3DXMATRIX viewMatrix)
+{
+	//viewMatrix = mView;
+}

@@ -19,10 +19,20 @@ public:
 	void setUpdate(bool update);
 	bool getUpdate();
 
+	void setVisible(bool _visible);
+	bool getVisible();
+
 	virtual void Update(float dt);
 	virtual void Render();
 
 private:
-	bool isActive, updates;
+	// Is the object active?
+	bool isActive;
+
+	// Does the object update?
+	bool updates;
+
+	// Does the object render?
+	bool visible;
 };
 
