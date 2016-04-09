@@ -23,6 +23,7 @@ public:
 	D3DXVECTOR3 getOffset();
 
 private:
+	// The label of the collision
 	Label myLabel;
 	D3DXVECTOR3 offset;
 };
