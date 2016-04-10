@@ -10,9 +10,31 @@ CollisionComponent::~CollisionComponent()
 {
 }
 
-void CollisionComponent::setLabel(Label newLabel)
+void CollisionComponent::Initialise(D3DXVECTOR3 thisPosition)
 {
-	myLabel = newLabel;
+	// Set the position
+	position = thisPosition;
+
+	// Register with Collision Manager
+	//CollisionManager::instance().addCollider(this);
+}
+
+void CollisionComponent::Update(D3DXVECTOR3 thisPosition, float dt)
+{
+	// Continually set the position
+	position = thisPosition;
+}
+
+#pragma region Get/Set Functions
+
+D3DXVECTOR3 CollisionComponent::getPosition()
+{
+	return position;
+}
+
+void CollisionComponent::setPosition(D3DXVECTOR3 _pos)
+{
+	position = _pos;
 }
 
 Label CollisionComponent::getLabel()
@@ -20,12 +42,9 @@ Label CollisionComponent::getLabel()
 	return myLabel; 
 }
 
-void CollisionComponent::setOffSet(D3DXVECTOR3 _offset)
+void CollisionComponent::setLabel(Label newLabel)
 {
-	offset = _offset;
+	myLabel = newLabel;
 }
 
-D3DXVECTOR3 CollisionComponent::getOffset()
-{
-	return offset;
-}
+#pragma endregion
