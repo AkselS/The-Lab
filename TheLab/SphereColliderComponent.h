@@ -20,7 +20,17 @@ public:
 
 	~SphereColliderComponent();
 
+	void Initialise() override;
+
+	void Update(float dt) override;
+
+
+#pragma region Get/Set function
+	
 	float getRadius();
+	void setRadius(float _radius);
+
+#pragma endregion
 
 protected:
 	float radius;

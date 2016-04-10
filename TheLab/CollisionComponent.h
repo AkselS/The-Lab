@@ -17,6 +17,10 @@ public:
 	CollisionComponent();
 	~CollisionComponent();
 
+	virtual void Initialise();
+
+	virtual void Update(float dt);
+
 #pragma region Get/Set functions
 	GameObject* getParentObject();
 	void setParentObject(GameObject* _parentObject);

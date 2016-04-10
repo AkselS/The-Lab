@@ -10,6 +10,21 @@ CollisionComponent::~CollisionComponent()
 {
 }
 
+void CollisionComponent::Initialise()
+{
+	// Set the position
+	position = parentObject->getPosition() + offset;
+
+	// Register with Collision Manager
+	//CollisionManager::instance().addCollider(this);
+}
+
+void CollisionComponent::Update(float dt)
+{
+	// Continually set the position
+	position = parentObject->getPosition() + offset;
+}
+
 #pragma region Get/Set Functions
 
 GameObject* CollisionComponent::getParentObject()

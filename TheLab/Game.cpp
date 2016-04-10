@@ -6,6 +6,7 @@ Game::Game()
 	renderer = 0;
 	input = 0;
 	tempContext = 0;
+	collisionManager = 0;
 }
 
 Game::Game(const Game& other)
@@ -40,6 +41,8 @@ bool Game::Initialise(HINSTANCE hInstance, HWND hwnd)
 	}
 
 	input->Initialise();
+
+	collisionManager->instance();
 
 	return true;
 }

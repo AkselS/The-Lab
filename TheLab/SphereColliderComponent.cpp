@@ -1,6 +1,6 @@
 #include "SphereColliderComponent.h"
 
-
+#pragma region Constructors and Destructors
 SphereColliderComponent::SphereColliderComponent()
 {
 }
@@ -15,10 +15,9 @@ SphereColliderComponent::SphereColliderComponent(GameObject* _parentObject, floa
 	parentObject = _parentObject;
 	radius = radius;
 
-	// Optional Overrides
+	// Optional Overrides(null)
 
-	// Implied
-	position = parentObject->getPosition() + offset;
+	this->Initialise();
 }
 
 SphereColliderComponent::SphereColliderComponent(GameObject* _parentObject, float _radius, Label _label, D3DXVECTOR3 _offSet)
@@ -33,8 +32,8 @@ SphereColliderComponent::SphereColliderComponent(GameObject* _parentObject, floa
 	offset = _offSet;
 	myLabel = _label;
 
-	// Implied
-	position = parentObject->getPosition() + offset;
+	this->Initialise();
+
 }
 
 SphereColliderComponent::SphereColliderComponent(GameObject* _parentObject, float _radius, Label _label)
@@ -49,8 +48,8 @@ SphereColliderComponent::SphereColliderComponent(GameObject* _parentObject, floa
 	// Optional Overrides
 	myLabel = _label;
 
-	// Implied
-	position = parentObject->getPosition() + offset;
+	this->Initialise();
+
 }
 
 SphereColliderComponent::SphereColliderComponent(GameObject* _parentObject, float _radius, D3DXVECTOR3 _offSet)
@@ -65,10 +64,36 @@ SphereColliderComponent::SphereColliderComponent(GameObject* _parentObject, floa
 	// Optional Overrides
 	offset = _offSet;
 
-	// Implied
-	position = parentObject->getPosition() + offset;
+	this->Initialise();
+
 }
 
 SphereColliderComponent::~SphereColliderComponent()
 {
 }
+
+#pragma endregion
+
+void SphereColliderComponent::Initialise()
+{
+	CollisionComponent::Initialise();
+}
+
+void SphereColliderComponent::Update(float dt)
+{
+	CollisionComponent::Update(dt);
+}
+
+#pragma region Get/Set functions
+
+float SphereColliderComponent::getRadius()
+{
+	return radius;
+}
+
+void SphereColliderComponent::setRadius(float _radius)
+{
+	radius = _radius;
+}
+
+#pragma endregion
