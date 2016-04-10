@@ -1,24 +1,23 @@
-#include "RenderingComponent.h"
+#include "RenderingManager.h"
 
-RenderingComponent::RenderingComponent()
+RenderingManager::RenderingManager()
 {
 	D3D = 0;
 	camera = 0;
 	mesh1 = 0;
 }
 
-RenderingComponent::RenderingComponent(const RenderingComponent&)
+RenderingManager::RenderingManager(const RenderingManager&)
 {
 }
 
-RenderingComponent::~RenderingComponent()
+RenderingManager::~RenderingManager()
 {
 }
 
-bool RenderingComponent::Initialise(int screenWidth, int screenHeight, HWND hwnd)
+bool RenderingManager::Initialise(HINSTANCE hInstance, HWND hwnd)
 {
 	bool result;
-
 
 	// Create the Direct3D object.
 	D3D = new DX11Base;
@@ -28,7 +27,7 @@ bool RenderingComponent::Initialise(int screenWidth, int screenHeight, HWND hwnd
 	}
 
 	// Initialize the Direct3D object.
-	result = D3D->Initialise(screenWidth, screenHeight, VSYNC_ENABLED, hwnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
+	result = D3D->Initialise(hInstance, hwnd);
 	if (!result)
 	{
 		MessageBox(hwnd, "Could not initialize Direct3D.", "Error", MB_OK);
@@ -63,7 +62,7 @@ bool RenderingComponent::Initialise(int screenWidth, int screenHeight, HWND hwnd
 }
 
 
-void RenderingComponent::Shutdown()
+void RenderingManager::Shutdown()
 {
 	if (mesh1)
 	{
@@ -91,7 +90,7 @@ void RenderingComponent::Shutdown()
 }
 
 
-bool RenderingComponent::Frame()
+bool RenderingManager::Frame()
 {
 	bool result;
 	static float rotation = 0.0f;
@@ -115,7 +114,7 @@ bool RenderingComponent::Frame()
 }
 
 
-bool RenderingComponent::Render(float rotation)
+bool RenderingManager::Render(float rotation)
 {
 	D3DXMATRIX worldMatrix, viewMatrix, projectionMatrix;
 	bool result;

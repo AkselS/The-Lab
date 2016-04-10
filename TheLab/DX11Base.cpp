@@ -68,7 +68,7 @@ bool DX11Base::Initialise(HINSTANCE hInstance, HWND hwnd)
 	float fieldOfView, screenAspect;
 
 	RECT dimensions;
-	GetClientRect(hwnd, &dimensions);
+	GetClientRect(hwnd_, &dimensions);
 
 	unsigned int width = dimensions.right - dimensions.left;
 	unsigned int height = dimensions.bottom - dimensions.top;
@@ -181,7 +181,7 @@ bool DX11Base::Initialise(HINSTANCE hInstance, HWND hwnd)
 		swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
 	}
 	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-	swapChainDesc.OutputWindow = hwnd;
+	swapChainDesc.OutputWindow = hwnd_;
 	if (fullscreen)
 	{
 		swapChainDesc.Windowed = false;
@@ -206,14 +206,16 @@ bool DX11Base::Initialise(HINSTANCE hInstance, HWND hwnd)
 	creationFlags |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
 
+	D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_11_0;
+
 	unsigned int driver = 0;
 
 	for (driver = 0; driver < totalDriverTypes; ++driver)
 	{
 		result = D3D11CreateDeviceAndSwapChain(NULL, driverTypes[driver], NULL,
-			creationFlags, featureLevels, totalFeatureLevels,
+			0, &featureLevel, 1,
 			D3D11_SDK_VERSION, &swapChainDesc, &swapChain,
-			&d3dDevice, &featureLevel_, &deviceContext);
+			&d3dDevice, NULL, &deviceContext);
 
 		if (SUCCEEDED(result))
 		{
@@ -224,9 +226,10 @@ bool DX11Base::Initialise(HINSTANCE hInstance, HWND hwnd)
 
 	if (FAILED(result))
 	{
-		DXTRACE_MSG("Failed to create the Direct3D device!");
+		//DXTRACE_MSG("Failed to create the Direct3D device!");
 		return false;
 	}
+
 	ID3D11Texture2D* backBufferTexture;
 	result = swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
 		(LPVOID*)&backBufferTexture);
@@ -351,7 +354,7 @@ bool DX11Base::Initialise(HINSTANCE hInstance, HWND hwnd)
 
 	D3DXMatrixOrthoLH(&orthoMatrix, (float)width, (float)height, screenNear, screenDepth);
 
-	return LoadContent();
+	return true;
 }
 
 void DX11Base::Shutdown()
