@@ -17,13 +17,11 @@ public:
 	CollisionComponent();
 	~CollisionComponent();
 
-	virtual void Initialise();
+	virtual void Initialise(D3DXVECTOR3 thisPosition);
 
-	virtual void Update(float dt);
+	virtual void Update(D3DXVECTOR3 thisPosition, float dt);
 
 #pragma region Get/Set functions
-	virtual GameObject* getParentObject();
-	virtual void setParentObject(GameObject* _parentObject);
 
 	virtual D3DXVECTOR3 getPosition();
 	virtual void setPosition(D3DXVECTOR3 _position);
@@ -31,14 +29,10 @@ public:
 	virtual Label getLabel();
 	virtual void setLabel(Label _label);
 
-	virtual D3DXVECTOR3 getOffset();
-	virtual void setOffSet(D3DXVECTOR3 _offset);
 #pragma endregion
 
 protected:
-	GameObject* parentObject;
 	D3DXVECTOR3 position;
 	Label myLabel;
-	D3DXVECTOR3 offset;
 };
 

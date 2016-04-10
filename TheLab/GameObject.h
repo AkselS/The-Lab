@@ -6,29 +6,30 @@ class GameObject
 {
 public:
 	GameObject();
+	GameObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale, bool _isActive, bool _updates, bool _visible);
 	~GameObject();
 
 	virtual void Update(float dt);
 	virtual void Render();
 	
 #pragma region Get/Set functions
-	D3DXVECTOR3 getPosition();
-	void setPosition(D3DXVECTOR3 _position);
+	virtual D3DXVECTOR3 getPosition();
+	virtual void setPosition(D3DXVECTOR3 _position);
 
-	D3DXVECTOR3 getRotation();
-	void setRotation(D3DXVECTOR3 _rotation);
+	virtual D3DXVECTOR3 getRotation();
+	virtual void setRotation(D3DXVECTOR3 _rotation);
 
-	D3DXVECTOR3 getScale();
-	void setScale(D3DXVECTOR3 _scale);
+	virtual D3DXVECTOR3 getScale();
+	virtual void setScale(D3DXVECTOR3 _scale);
 
-	bool getActive();
-	void setActive(bool active);
+	virtual bool getActive();
+	virtual void setActive(bool active);
 
-	bool getUpdate();
-	void setUpdate(bool update);
+	virtual bool getUpdate();
+	virtual void setUpdate(bool update);
 
-	bool getVisible();
-	void setVisible(bool _visible);
+	virtual bool getVisible();
+	virtual void setVisible(bool _visible);
 
 #pragma endregion
 

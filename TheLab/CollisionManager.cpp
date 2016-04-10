@@ -58,9 +58,11 @@ bool CollisionManager::sphereToSphereCollision(SphereColliderComponent* A, Spher
 	float dY = posA.y - posB.y;
 	float dZ = posA.z - posB.z;
 
+	// Calculate the distance between point A and point B
 	float dist = sqrt(dX*dX + dY*dY + dZ*dZ);
 
 	bool result = false;
+	// If the distance is smaller than any radius then they have collided
 	if (dist <= A->getRadius() || dist <= B->getRadius())
 	{
 		result = true;

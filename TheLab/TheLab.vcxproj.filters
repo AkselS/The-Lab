@@ -58,14 +58,14 @@
     <Filter Include="Header Files\Managers">
       <UniqueIdentifier>{9c241717-0d6a-4a99-aa56-cb8952e6e8d8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Components\Collision">
-      <UniqueIdentifier>{744b366f-7c47-4434-95cd-244ba1319e77}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\Collision">
-      <UniqueIdentifier>{3d6393f5-c6ef-44cc-b6c4-f69836c68bf3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Managers">
       <UniqueIdentifier>{63423f79-8d43-42af-b39a-690af5cbdba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\CollisionAndPhsics">
+      <UniqueIdentifier>{744b366f-7c47-4434-95cd-244ba1319e77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\CollisionAndPhysics">
+      <UniqueIdentifier>{3d6393f5-c6ef-44cc-b6c4-f69836c68bf3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -130,16 +130,22 @@
       <Filter>Source Files\To Sort</Filter>
     </ClCompile>
     <ClCompile Include="CollisionComponent.cpp">
-      <Filter>Source Files\Components\Collision</Filter>
+      <Filter>Source Files\Components\CollisionAndPhysics</Filter>
     </ClCompile>
     <ClCompile Include="SphereColliderComponent.cpp">
-      <Filter>Source Files\Components\Collision</Filter>
+      <Filter>Source Files\Components\CollisionAndPhysics</Filter>
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
     <ClCompile Include="RenderingManager.cpp">
       <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyComponent.cpp">
+      <Filter>Source Files\Components\CollisionAndPhysics</Filter>
+    </ClCompile>
+    <ClCompile Include="TestObject.cpp">
+      <Filter>Source Files\Game Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,10 +213,16 @@
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="SphereColliderComponent.h">
-      <Filter>Header Files\Components\Collision</Filter>
+      <Filter>Header Files\Components\CollisionAndPhsics</Filter>
     </ClInclude>
     <ClInclude Include="CollisionComponent.h">
-      <Filter>Header Files\Components\Collision</Filter>
+      <Filter>Header Files\Components\CollisionAndPhsics</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyComponent.h">
+      <Filter>Header Files\Components\CollisionAndPhsics</Filter>
+    </ClInclude>
+    <ClInclude Include="TestObject.h">
+      <Filter>Header Files\Game Framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

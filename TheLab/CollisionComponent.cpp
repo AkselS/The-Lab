@@ -10,32 +10,22 @@ CollisionComponent::~CollisionComponent()
 {
 }
 
-void CollisionComponent::Initialise()
+void CollisionComponent::Initialise(D3DXVECTOR3 thisPosition)
 {
 	// Set the position
-	position = parentObject->getPosition() + offset;
+	position = thisPosition;
 
 	// Register with Collision Manager
 	//CollisionManager::instance().addCollider(this);
 }
 
-void CollisionComponent::Update(float dt)
+void CollisionComponent::Update(D3DXVECTOR3 thisPosition, float dt)
 {
 	// Continually set the position
-	position = parentObject->getPosition() + offset;
+	position = thisPosition;
 }
 
 #pragma region Get/Set Functions
-
-GameObject* CollisionComponent::getParentObject()
-{
-	return parentObject;
-}
-
-void CollisionComponent::setParentObject(GameObject* _parentObject)
-{
-	parentObject = _parentObject;
-}
 
 D3DXVECTOR3 CollisionComponent::getPosition()
 {
@@ -57,13 +47,4 @@ void CollisionComponent::setLabel(Label newLabel)
 	myLabel = newLabel;
 }
 
-D3DXVECTOR3 CollisionComponent::getOffset()
-{
-	return offset;
-}
-
-void CollisionComponent::setOffSet(D3DXVECTOR3 _offset)
-{
-	offset = _offset;
-}
 #pragma endregion
