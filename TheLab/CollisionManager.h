@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CollisionComponent.h"
+#include "SphereColliderComponent.h"
 #include <vector>
 
 class CollisionManager
@@ -17,5 +17,6 @@ private:
 	CollisionManager();
 	
 	std::vector<CollisionComponent*> Colliders;
-};
 
+	bool sphereToSphereCollision(SphereColliderComponent* A, SphereColliderComponent* B);
+};

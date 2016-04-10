@@ -6,6 +6,7 @@
 
 #include "RenderingManager.h"
 #include "InputComponent.h"
+#include "CollisionManager.h"
 
 class Game
 {
@@ -27,6 +28,9 @@ private:
 	ID3D11DeviceContext* tempContext;
 	RenderingManager* renderer;
 	InputComponent* input;
+
+	// Collisions
+	CollisionManager* collisionManager;
 };
 
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
