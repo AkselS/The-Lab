@@ -1,16 +1,11 @@
 #pragma once
 
-#include <d3dx10math.h>
+#include "CollisionComponent.h"
 
-enum Label
-{
-	NoLabel,
-	Player,
-	LevelArchitecture,
-	Triggers
-};
 
-class SphereColliderComponent
+
+class SphereColliderComponent :
+	CollisionComponent
 {
 public:
 	SphereColliderComponent();
@@ -23,9 +18,9 @@ public:
 
 	~SphereColliderComponent();
 
-	Label myLabel;
+	float getRadius();
 
-	D3DXVECTOR3 offset;
+private:
 	float radius;
 };
 
