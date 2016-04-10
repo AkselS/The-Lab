@@ -61,11 +61,11 @@
     <Filter Include="Source Files\Managers">
       <UniqueIdentifier>{63423f79-8d43-42af-b39a-690af5cbdba2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Components\CollisionAndPhsics">
-      <UniqueIdentifier>{744b366f-7c47-4434-95cd-244ba1319e77}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Components\CollisionAndPhysics">
       <UniqueIdentifier>{3d6393f5-c6ef-44cc-b6c4-f69836c68bf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\CollisionAndPhysics">
+      <UniqueIdentifier>{744b366f-7c47-4434-95cd-244ba1319e77}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -213,13 +213,13 @@
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
     <ClInclude Include="SphereColliderComponent.h">
-      <Filter>Header Files\Components\CollisionAndPhsics</Filter>
+      <Filter>Header Files\Components\CollisionAndPhysics</Filter>
     </ClInclude>
     <ClInclude Include="CollisionComponent.h">
-      <Filter>Header Files\Components\CollisionAndPhsics</Filter>
+      <Filter>Header Files\Components\CollisionAndPhysics</Filter>
     </ClInclude>
     <ClInclude Include="RigidBodyComponent.h">
-      <Filter>Header Files\Components\CollisionAndPhsics</Filter>
+      <Filter>Header Files\Components\CollisionAndPhysics</Filter>
     </ClInclude>
     <ClInclude Include="TestObject.h">
       <Filter>Header Files\Game Framework</Filter>
