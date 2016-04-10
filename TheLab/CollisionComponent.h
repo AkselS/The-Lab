@@ -1,6 +1,7 @@
 #pragma once
 
 #include <d3dx10math.h>
+#include "GameObject.h"
 
 enum Label
 {
@@ -16,14 +17,22 @@ public:
 	CollisionComponent();
 	~CollisionComponent();
 
-	void setLabel(Label _label);
-	Label getLabel();
+	virtual void Initialise(D3DXVECTOR3 thisPosition);
 
-	void setOffSet(D3DXVECTOR3 _offset);
-	D3DXVECTOR3 getOffset();
+	virtual void Update(D3DXVECTOR3 thisPosition, float dt);
 
-private:
+#pragma region Get/Set functions
+
+	virtual D3DXVECTOR3 getPosition();
+	virtual void setPosition(D3DXVECTOR3 _position);
+
+	virtual Label getLabel();
+	virtual void setLabel(Label _label);
+
+#pragma endregion
+
+protected:
+	D3DXVECTOR3 position;
 	Label myLabel;
-	D3DXVECTOR3 offset;
 };
 
