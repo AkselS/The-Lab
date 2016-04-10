@@ -39,8 +39,8 @@ public:
 
 	void GetVideoCardInfo(char*, int&);
 
-	virtual void Update(float dt) = 0;
-	virtual void Render() = 0;
+	//virtual void Update(float dt) = 0;
+	//virtual void Render() = 0;
 protected:
 	HINSTANCE hInstance_;
 	HWND hwnd_;
