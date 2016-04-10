@@ -12,6 +12,11 @@ DX11Base::DX11Base() :
 
 }
 
+DX11Base::DX11Base(const DX11Base& other)
+{
+
+}
+
 
 DX11Base::~DX11Base()
 {

@@ -21,7 +21,7 @@ bool RenderingComponent::Initialise(int screenWidth, int screenHeight, HWND hwnd
 
 
 	// Create the Direct3D object.
-	D3D = new D3DComponent;
+	D3D = new DX11Base;
 	if (!D3D)
 	{
 		return false;
@@ -42,12 +42,8 @@ bool RenderingComponent::Initialise(int screenWidth, int screenHeight, HWND hwnd
 		return false;
 	}
 
-	XMFLOAT3 newPos;
-	newPos.x = 0.0f;
-	newPos.y = 0.0f;
-	newPos.z = -10.0f;
 	// Set the initial position of the camera.
-	camera->Position(newPos);
+	camera->Position(XMFLOAT3(0.0f, 0.0f, -10.0f));
 
 	// Create the model object.
 	mesh1 = new StaticMeshComponent;

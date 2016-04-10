@@ -42,9 +42,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
 	// No memory leaks even if game crashes
 	std::auto_ptr<DX11Base> game(new Game());
 
+	bool result;
 	// Initialize Game
-	bool result = game->Initialise(hInstance, hwnd);
-
+	result = game->Initialise(hInstance, hwnd);
+	
 	//Error reporting if there is an issue
 	if (result == false)
 	{

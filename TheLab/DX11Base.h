@@ -6,10 +6,13 @@
 #include <d3dx11.h>
 #include <DxErr.h>
 
+using namespace std;
+
 class DX11Base
 {
 public:
 	DX11Base();
+	DX11Base(const DX11Base& other);
 	virtual ~DX11Base();
 
 	
@@ -35,5 +38,7 @@ protected:
 
 	
 };
+
+DX11Base* D3D;
 
 #endif

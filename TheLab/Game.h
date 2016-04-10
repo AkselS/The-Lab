@@ -16,7 +16,7 @@ public:
 	Game(const Game&);
 	virtual ~Game();
 
-	bool Initialise(HINSTANCE hInstance, HWND hwnd);
+	bool GInitialise(HINSTANCE hInstance, HWND hwnd);
 	void Shutdown();
 
 	LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
@@ -30,6 +30,6 @@ private:
 	InputComponent* input;
 };
 
-static LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
+static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 static Game* AppHandle = 0;

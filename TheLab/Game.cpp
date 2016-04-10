@@ -16,17 +16,25 @@ Game::~Game()
 {
 }
 
-bool Game::Initialise(HINSTANCE hInstance, HWND hwnd)
+bool Game::GInitialise(HINSTANCE hInstance, HWND hwnd)
 {
+	DX11Base::Initialise(hInstance, hwnd);
+
 	int screenWidth, screenHeight;
 	bool result;
 
 	screenWidth = GetSystemMetrics(SM_CXSCREEN);
 	screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
-	DX11Base::Initialise(hInstance, hwnd);
+	input = new InputComponent;
+	if (!input)
+	{
+		return false;
+	}
 
-	renderer = new RenderingComponent;
+	input->Initialise();
+
+	renderer = new RenderingComponent();
 	if (!renderer)
 	{
 		return false;
@@ -37,14 +45,6 @@ bool Game::Initialise(HINSTANCE hInstance, HWND hwnd)
 	{
 		return false;
 	}
-
-	input = new InputComponent;
-	if (!input)
-	{
-		return false;
-	}
-
-	input->Initialise();
 
 	return true;
 }
@@ -104,17 +104,17 @@ void Game::Update(float dt)
 
 void Game::Render()
 {
-	if (d3dContext_ ==0)
+	if (d3dContext_ == 0)
 	{
 		return;
 	}
 
-	//float clearColor[4] = { 0.0f, 0.0f, 0.25f, 1.0f };
-	//d3dContext_->ClearRenderTargetView(backBufferTarget_, clearColor);
+	float clearColor[4] = { 0.0f, 0.0f, 0.25f, 1.0f };
+	d3dContext_->ClearRenderTargetView(backBufferTarget_, clearColor);
 
 
 
-	//swapChain_->Present(0, 0);
+	swapChain_->Present(0, 0);
 }
 
 bool Game::Frame()
@@ -139,7 +139,7 @@ LRESULT CALLBACK Game::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARA
 {
 	switch (umsg)
 	{
-	
+
 	case WM_KEYDOWN:
 	{
 		input->KeyDown((unsigned int)wparam);
@@ -154,7 +154,31 @@ LRESULT CALLBACK Game::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARA
 
 	default:
 	{
-			   return DefWindowProc(hwnd, umsg, wparam, lparam);
+		return DefWindowProc(hwnd, umsg, wparam, lparam);
+	}
+	}
+}
+
+LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
+{
+	switch (umessage)
+	{
+
+	case WM_QUIT:
+	{
+		PostQuitMessage(0);
+		return 0;
+	}
+
+	case WM_CLOSE:
+	{
+		PostQuitMessage(0);
+		return 0;
+	}
+
+	default:
+	{
+		return AppHandle->MessageHandler(hwnd, umessage, wparam, lparam);
 	}
 	}
 }
