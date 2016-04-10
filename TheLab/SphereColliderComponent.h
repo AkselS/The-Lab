@@ -10,11 +10,13 @@ class SphereColliderComponent :
 public:
 	SphereColliderComponent();
 
-	SphereColliderComponent(D3DXVECTOR3 _offSet, float _radius, Label _label);
+	SphereColliderComponent(GameObject* _parentObject, float _radius);
 
-	SphereColliderComponent(float _radius);
+	SphereColliderComponent(GameObject* _parentObject, float _radius, Label _label, D3DXVECTOR3 _offSet);
 
-	SphereColliderComponent(float _radius, Label _label);
+	SphereColliderComponent(GameObject* _parentObject, float _radius, Label _label);
+
+	SphereColliderComponent(GameObject* _parentObject, float _radius, D3DXVECTOR3 _offSet);
 
 	~SphereColliderComponent();
 

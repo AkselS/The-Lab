@@ -10,9 +10,16 @@ CollisionComponent::~CollisionComponent()
 {
 }
 
-void CollisionComponent::setLabel(Label newLabel)
+#pragma region Get/Set Functions
+
+GameObject* CollisionComponent::getParentObject()
 {
-	myLabel = newLabel;
+	return parentObject;
+}
+
+void CollisionComponent::setParentObject(GameObject* _parentObject)
+{
+	parentObject = _parentObject;
 }
 
 Label CollisionComponent::getLabel()
@@ -20,12 +27,18 @@ Label CollisionComponent::getLabel()
 	return myLabel; 
 }
 
-void CollisionComponent::setOffSet(D3DXVECTOR3 _offset)
+void CollisionComponent::setLabel(Label newLabel)
 {
-	offset = _offset;
+	myLabel = newLabel;
 }
 
 D3DXVECTOR3 CollisionComponent::getOffset()
 {
 	return offset;
 }
+
+void CollisionComponent::setOffSet(D3DXVECTOR3 _offset)
+{
+	offset = _offset;
+}
+#pragma endregion
