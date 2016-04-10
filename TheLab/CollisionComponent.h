@@ -22,14 +22,17 @@ public:
 	virtual void Update(float dt);
 
 #pragma region Get/Set functions
-	GameObject* getParentObject();
-	void setParentObject(GameObject* _parentObject);
+	virtual GameObject* getParentObject();
+	virtual void setParentObject(GameObject* _parentObject);
 
-	Label getLabel();
-	void setLabel(Label _label);
+	virtual D3DXVECTOR3 getPosition();
+	virtual void setPosition(D3DXVECTOR3 _position);
 
-	D3DXVECTOR3 getOffset();
-	void setOffSet(D3DXVECTOR3 _offset);
+	virtual Label getLabel();
+	virtual void setLabel(Label _label);
+
+	virtual D3DXVECTOR3 getOffset();
+	virtual void setOffSet(D3DXVECTOR3 _offset);
 #pragma endregion
 
 protected:

@@ -49,3 +49,22 @@ void CollisionManager::addCollider(CollisionComponent* _collider)
 {
 	Colliders.push_back(_collider);
 }
+
+bool CollisionManager::sphereToSphereCollision(SphereColliderComponent* A, SphereColliderComponent* B)
+{
+	D3DXVECTOR3 posA = A->getPosition();
+	D3DXVECTOR3 posB = B->getPosition();
+	float dX = posA.x - posB.x;
+	float dY = posA.y - posB.y;
+	float dZ = posA.z - posB.z;
+
+	float dist = sqrt(dX*dX + dY*dY + dZ*dZ);
+
+	bool result = false;
+	if (dist <= A->getRadius() || dist <= B->getRadius())
+	{
+		result = true;
+	}
+
+	return result;
+}

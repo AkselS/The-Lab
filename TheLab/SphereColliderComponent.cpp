@@ -85,7 +85,49 @@ void SphereColliderComponent::Update(float dt)
 }
 
 #pragma region Get/Set functions
+#pragma region Overrides
 
+GameObject* SphereColliderComponent::getParentObject()
+{
+	return parentObject;
+}
+
+void SphereColliderComponent::setParentObject(GameObject* _parentObject)
+{
+	parentObject = _parentObject;
+}
+
+D3DXVECTOR3 SphereColliderComponent::getPosition()
+{
+	return position;
+}
+
+void SphereColliderComponent::setPosition(D3DXVECTOR3 _pos)
+{
+	position = _pos;
+}
+
+Label SphereColliderComponent::getLabel()
+{
+	return myLabel;
+}
+
+void SphereColliderComponent::setLabel(Label newLabel)
+{
+	myLabel = newLabel;
+}
+
+D3DXVECTOR3 SphereColliderComponent::getOffset()
+{
+	return offset;
+}
+
+void SphereColliderComponent::setOffSet(D3DXVECTOR3 _offset)
+{
+	offset = _offset;
+}
+
+#pragma endregion
 float SphereColliderComponent::getRadius()
 {
 	return radius;

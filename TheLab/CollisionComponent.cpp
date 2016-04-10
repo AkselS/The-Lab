@@ -37,6 +37,16 @@ void CollisionComponent::setParentObject(GameObject* _parentObject)
 	parentObject = _parentObject;
 }
 
+D3DXVECTOR3 CollisionComponent::getPosition()
+{
+	return position;
+}
+
+void CollisionComponent::setPosition(D3DXVECTOR3 _pos)
+{
+	position = _pos;
+}
+
 Label CollisionComponent::getLabel()
 {
 	return myLabel; 
