@@ -5,6 +5,7 @@ Game::Game()
 {
 	renderer = 0;
 	input = 0;
+	tempContext = 0;
 }
 
 Game::Game(const Game& other)
@@ -16,15 +17,21 @@ Game::~Game()
 {
 }
 
-bool Game::GInitialise(HINSTANCE hInstance, HWND hwnd)
+bool Game::Initialise(HINSTANCE hInstance, HWND hwnd)
 {
-	DX11Base::Initialise(hInstance, hwnd);
-
-	int screenWidth, screenHeight;
 	bool result;
 
-	screenWidth = GetSystemMetrics(SM_CXSCREEN);
-	screenHeight = GetSystemMetrics(SM_CYSCREEN);
+	renderer = new RenderingManager();
+	if (!renderer)
+	{
+		return false;
+	}
+
+	result = renderer->Initialise(hInstance, hwnd);
+	if (!result)
+	{
+		return false;
+	}
 
 	input = new InputComponent;
 	if (!input)
@@ -33,18 +40,6 @@ bool Game::GInitialise(HINSTANCE hInstance, HWND hwnd)
 	}
 
 	input->Initialise();
-
-	renderer = new RenderingComponent();
-	if (!renderer)
-	{
-		return false;
-	}
-
-	result = renderer->Initialise(screenWidth, screenHeight, hwnd);
-	if (!result)
-	{
-		return false;
-	}
 
 	return true;
 }
@@ -64,13 +59,31 @@ void Game::Shutdown()
 		input = 0;
 	}
 
+	if (tempContext)
+	{
+		tempContext->Release();
+		tempContext = 0;
+	}
+
 	AppHandle = NULL;
-	DX11Base::Shutdown();
 	return;
 }
 
 void Game::Update(float dt)
 {
+
+	return;
+
+}
+
+void Game::Render()
+{
+	/*tempContext = renderer->GetDeviceContext();
+	if (tempContext == 0)
+	{
+		return;
+	}*/
+
 	MSG msg;
 	bool done, result;
 
@@ -98,30 +111,13 @@ void Game::Update(float dt)
 			}
 		}
 	}
-	return;
-
-}
-
-void Game::Render()
-{
-	if (d3dContext_ == 0)
-	{
-		return;
-	}
-
-	float clearColor[4] = { 0.0f, 0.0f, 0.25f, 1.0f };
-	d3dContext_->ClearRenderTargetView(backBufferTarget_, clearColor);
-
-
-
-	swapChain_->Present(0, 0);
 }
 
 bool Game::Frame()
 {
 	bool result;
 
-	if (input->isKeyDown(VK_ESCAPE))
+	if (GetAsyncKeyState(VK_ESCAPE))
 	{
 		return false;
 	}
@@ -178,7 +174,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 
 	default:
 	{
-		return AppHandle->MessageHandler(hwnd, umessage, wparam, lparam);
+		return DefWindowProc(hwnd, umessage, wparam, lparam); //AppHandle->MessageHandler(hwnd, umessage, wparam, lparam);
 	}
 	}
 }

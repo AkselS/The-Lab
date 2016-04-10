@@ -40,7 +40,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
 
 	// Create game intance using smart pointer
 	// No memory leaks even if game crashes
-	std::auto_ptr<DX11Base> game(new Game());
+	std::auto_ptr<Game> game(new Game());
 
 	bool result;
 	// Initialize Game

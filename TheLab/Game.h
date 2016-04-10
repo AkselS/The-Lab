@@ -4,19 +4,17 @@
 
 #include <Windows.h>
 
-#include "DX11Base.h"
-#include "RenderingComponent.h"
+#include "RenderingManager.h"
 #include "InputComponent.h"
 
-class Game :
-	public DX11Base
+class Game
 {
 public:
 	Game();
 	Game(const Game&);
 	virtual ~Game();
 
-	bool GInitialise(HINSTANCE hInstance, HWND hwnd);
+	bool Initialise(HINSTANCE hInstance, HWND hwnd);
 	void Shutdown();
 
 	LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
@@ -26,7 +24,8 @@ public:
 
 private:
 	bool Frame();
-	RenderingComponent* renderer;
+	ID3D11DeviceContext* tempContext;
+	RenderingManager* renderer;
 	InputComponent* input;
 };
 

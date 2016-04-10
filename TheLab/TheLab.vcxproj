@@ -78,7 +78,6 @@
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="SphereColliderComponent.cpp" />
-    <ClCompile Include="D3DComponent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="DX11Base.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -91,7 +90,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="Playing.cpp" />
-    <ClCompile Include="RenderingComponent.cpp" />
+    <ClCompile Include="RenderingManager.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StaticMeshComponent.cpp" />
     <ClCompile Include="TextureComponent.cpp" />
@@ -105,7 +104,6 @@
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="SphereColliderComponent.h" />
-    <ClInclude Include="D3DComponent.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="DX11Base.h" />
     <ClInclude Include="GameObject.h" />
@@ -117,7 +115,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Playing.h" />
-    <ClInclude Include="RenderingComponent.h" />
+    <ClInclude Include="RenderingManager.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StaticMeshComponent.h" />
     <ClInclude Include="TextureComponent.h" />
