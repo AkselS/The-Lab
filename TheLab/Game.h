@@ -13,7 +13,7 @@ public:
 	Game();
 	Game(const Game&);
 	virtual ~Game();
-
+	InputComponent* GetInput();
 	bool Initialise(HINSTANCE hInstance, HWND hwnd);
 	void Shutdown();
 
@@ -26,7 +26,7 @@ private:
 	bool Frame();
 	ID3D11DeviceContext* tempContext;
 	RenderingManager* renderer;
-	InputComponent* input;
+	InputComponent* m_input;
 };
 
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);

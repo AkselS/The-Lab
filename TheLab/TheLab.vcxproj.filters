@@ -129,6 +129,9 @@
     <ClCompile Include="RenderingManager.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DX11Base.h">
@@ -198,6 +201,9 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="RenderingManager.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>

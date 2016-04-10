@@ -1,28 +1,40 @@
-﻿Build started 10/04/2016 16:51:05.
+﻿Build started 10/04/2016 20:45:53.
      1>Project "C:\Users\w1435340\Desktop\The-Lab\TheLab\TheLab.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp InputComponent.cpp main.cpp
-         main.cpp
-         c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     1>c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(3): warning C4005: 'DIRECTINPUT_VERSION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\um\dinput.h(48) : see previous definition of 'DIRECTINPUT_VERSION'
-     1>c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(27): error C2535: 'bool InputComponent::ReadMouse(void)' : member function already defined or declared
-                 c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(19) : see declaration of 'InputComponent::ReadMouse'
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt InputComponent.cpp
          InputComponent.cpp
          c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
      1>c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(3): warning C4005: 'DIRECTINPUT_VERSION' : macro redefinition
                  c:\program files (x86)\windows kits\8.1\include\um\dinput.h(48) : see previous definition of 'DIRECTINPUT_VERSION'
-     1>c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(27): error C2535: 'bool InputComponent::ReadMouse(void)' : member function already defined or declared
-                 c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(19) : see declaration of 'InputComponent::ReadMouse'
-         Game.cpp
-         c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     1>c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(3): warning C4005: 'DIRECTINPUT_VERSION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\um\dinput.h(48) : see previous definition of 'DIRECTINPUT_VERSION'
-     1>c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(27): error C2535: 'bool InputComponent::ReadMouse(void)' : member function already defined or declared
-                 c:\users\w1435340\desktop\the-lab\thelab\inputcomponent.h(19) : see declaration of 'InputComponent::ReadMouse'
-         Generating Code...
-     1>Done Building Project "C:\Users\w1435340\Desktop\The-Lab\TheLab\TheLab.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\w1435340\Desktop\The-Lab\Debug\TheLab.exe" /INCREMENTAL /NOLOGO d3d11.lib d3dx11.lib dxerr.lib d3dx10.lib dinput8.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\w1435340\Desktop\The-Lab\Debug\TheLab.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\w1435340\Desktop\The-Lab\Debug\TheLab.lib" /MACHINE:X86 Debug\CameraComponent.obj
+         Debug\Character.obj
+         Debug\CollisionComponent.obj
+         Debug\CollisionManager.obj
+         Debug\Physics.obj
+         Debug\SphereColliderComponent.obj
+         Debug\Game.obj
+         Debug\DX11Base.obj
+         Debug\GameObject.obj
+         Debug\GameState.obj
+         Debug\Idle.obj
+         Debug\InputComponent.obj
+         Debug\main.obj
+         Debug\MainMenu.obj
+         Debug\MeshVertex.obj
+         Debug\Player.obj
+         Debug\PlayerState.obj
+         Debug\Playing.obj
+         Debug\RenderingManager.obj
+         Debug\State.obj
+         Debug\StaticMeshComponent.obj
+         Debug\TextureComponent.obj
+         Debug\TextureShader.obj
+         Debug\Util.obj
+         Debug\Walking.obj
+         TheLab.vcxproj -> C:\Users\w1435340\Desktop\The-Lab\Debug\TheLab.exe
+     1>Done Building Project "C:\Users\w1435340\Desktop\The-Lab\TheLab\TheLab.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:03.19
+Time Elapsed 00:00:01.15

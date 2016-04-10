@@ -4,7 +4,7 @@
 Game::Game()
 {
 	renderer = 0;
-	input = 0;
+	m_input = NULL;
 	tempContext = 0;
 }
 
@@ -33,13 +33,14 @@ bool Game::Initialise(HINSTANCE hInstance, HWND hwnd)
 		return false;
 	}
 
-	input = new InputComponent;
-	if (!input)
+	m_input = new InputComponent;
+	if (!m_input->Initialise(hInstance, hwnd, SCREEN_DEPTH, SCREEN_NEAR))
 	{
 		return false;
 	}
-
+	//m_input->update();
 	//input->Initialise();
+	
 
 	return true;
 }
@@ -53,10 +54,10 @@ void Game::Shutdown()
 		renderer = 0;
 	}
 
-	if (input)
+	if (m_input)
 	{
-		delete input;
-		input = 0;
+		delete m_input;
+		m_input = 0;
 	}
 
 	if (tempContext)
@@ -71,7 +72,7 @@ void Game::Shutdown()
 
 void Game::Update(float dt)
 {
-
+	m_input->update();
 	return;
 
 }
@@ -130,29 +131,44 @@ bool Game::Frame()
 
 	return true;
 }
-
+InputComponent* Game::GetInput()
+{
+	return m_input;
+}
 LRESULT CALLBACK Game::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
-	switch (umsg)
+	InputComponent* m_input =Game::GetInput();
+	if (m_input != NULL && m_input->isKeyDown(DIK_ESCAPE))
 	{
-
-	case WM_KEYDOWN:
-	{
-		input->KeyDown((unsigned int)wparam);
+		PostQuitMessage(0);
+		DestroyWindow(hwnd);
 		return 0;
 	}
+	//switch (umsg)
+	//{
 
-	case WM_KEYUP:
-	{
-		input->KeyUp((unsigned int)wparam);
-		return 0;
-	}
+	//case WM_KEYDOWN:
+	//{
+	//	if (wparam == VK_ESCAPE)
+	//	{
+	//		PostQuitMessage(0);
+	//		DestroyWindow(hwnd);
+	//	}
+	///*	m_input->KeyDown((unsigned int)wparam);
+	//	return 0;*/
+	//}break;
 
-	default:
-	{
-		return DefWindowProc(hwnd, umsg, wparam, lparam);
-	}
-	}
+	//case WM_KEYUP:
+	//{
+	//	m_input->KeyUp((unsigned int)wparam);
+	//	return 0;
+	//}
+
+	//default:
+	//{
+	//	return DefWindowProc(hwnd, umsg, wparam, lparam);
+	//}
+	//}
 }
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)

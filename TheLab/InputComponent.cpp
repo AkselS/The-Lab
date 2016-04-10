@@ -115,21 +115,26 @@ bool InputComponent::update()
 	ProcessInput();
 	return true;
 }
-void InputComponent::KeyDown(unsigned int input)
+void InputComponent::KeyDown(unsigned int key)
 {
-	keys[input] = true;
+	keys[key] = true;
 	return;
 }
-
-void InputComponent::KeyUp(unsigned int input)
-{
-	keys[input] = false;
-	return;
-}
+//
+//void InputComponent::KeyUp(unsigned int key)
+//{
+//	keys[key] = false;
+//	return;
+//}
 
 bool InputComponent::isKeyDown(unsigned int key)
 {
 	return keys[key];
+}
+void InputComponent::GetMousePos(int& x, int& y)
+{
+	x = m_mouseX;
+	y = m_mouseY;
 }
 bool InputComponent::ReadKeyBoard()
 {
@@ -138,7 +143,7 @@ bool InputComponent::ReadKeyBoard()
 	result = m_keyboard->GetDeviceState(sizeof(keys), (LPVOID)&keys);
 	if (FAILED(result))
 	{
-		if (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED)
+		if ((result == DIERR_INPUTLOST) || (result == DIERR_NOTACQUIRED))
 			{
 				m_keyboard->Acquire(); 
 
@@ -153,18 +158,19 @@ bool InputComponent::ReadKeyBoard()
 }
 bool InputComponent::ReadMouse()
 {
-	HRESULT result;
-	if (m_mouse = NULL)
+	
+	if (m_mouse == NULL)
 	{
 		m_directInput->CreateDevice(GUID_SysMouse, &m_mouse, NULL);
 		return false;
 	}
+    HRESULT result;
 	result = m_mouse->GetDeviceState(sizeof(DIMOUSESTATE), (LPVOID)&m_mouseState);
 	if (FAILED(result))
 	{
-		if (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED)
+		if ((result == DIERR_INPUTLOST) || (result == DIERR_NOTACQUIRED))
 		{
-			m_keyboard->Acquire();
+			m_mouse->Acquire();
 
 		}
 		else
@@ -172,6 +178,7 @@ bool InputComponent::ReadMouse()
 			return false;
 		}
 	}
+	return true;
 }
 void InputComponent::ProcessInput()
 {
