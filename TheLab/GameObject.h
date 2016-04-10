@@ -7,6 +7,8 @@ class GameObject
 public:
 	GameObject();
 	GameObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale, bool _isActive, bool _updates, bool _visible);
+	GameObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale);
+
 	~GameObject();
 
 	virtual void Update(float dt);

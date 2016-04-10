@@ -3,13 +3,33 @@
 
 GameObject::GameObject()
 {
-	position = { 0.0f, 0.0f, 0.0f };
-	scale = { 1.0f, 1.0f, 1.0f };
-	rotation = { 0.0f, 0.0f, 0.0f };
+	position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
+	rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	isActive = true;
 	updates = true;
+	visible = true;
 }
 
+GameObject::GameObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale, bool _isActive, bool _updates, bool _visible)
+{
+	position = _position;
+	scale = _scale;
+	rotation = _rotation;
+	isActive = _isActive;
+	updates = _updates;
+	visible = _visible;
+}
+
+GameObject::GameObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale)
+{
+	position = _position;
+	scale = _scale;
+	rotation = _rotation;
+	isActive = true;
+	updates = true;
+	visible = true;
+}
 
 GameObject::~GameObject()
 {

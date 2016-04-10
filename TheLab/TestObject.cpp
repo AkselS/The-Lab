@@ -13,9 +13,34 @@ TestObject::TestObject()
 	mySphereCollisionComponent = SphereColliderComponent(position, 1.0f, NoLabel);
 }
 
+TestObject::TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale, bool _isActive, bool _updates, bool _visible)
+{
+	position = _position;
+	scale = _scale;
+	rotation = _rotation;
+	isActive = _isActive;
+	updates = _updates;
+	visible = _visible;
+
+	mySphereCollisionComponent = SphereColliderComponent(position, 1.0f, NoLabel);
+}
+
+TestObject::TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale)
+{
+	position = _position;
+	scale = _scale;
+	rotation = _rotation;
+	isActive = true;
+	updates = true;
+	visible = true;
+
+	mySphereCollisionComponent = SphereColliderComponent(position, 1.0f, NoLabel);
+}
+
 
 TestObject::~TestObject()
 {
+	mySphereCollisionComponent.~SphereColliderComponent();
 }
 
 void TestObject::Update(float dt)

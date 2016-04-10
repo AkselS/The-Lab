@@ -7,6 +7,8 @@ class TestObject :
 {
 public:
 	TestObject();
+	TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale, bool _isActive, bool _updates, bool _visible);
+	TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale);
 	~TestObject();
 
 	void Update(float dt) override;
