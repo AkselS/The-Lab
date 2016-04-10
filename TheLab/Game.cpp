@@ -39,7 +39,7 @@ bool Game::Initialise(HINSTANCE hInstance, HWND hwnd)
 		return false;
 	}
 
-	input->Initialise();
+	//input->Initialise();
 
 	return true;
 }
