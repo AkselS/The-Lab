@@ -3,8 +3,11 @@
 
 #pragma once
 
+#include <d3d10_1.h>
 #include "CameraComponent.h"
 #include "StaticMeshComponent.h"
+#include "LightShader.h"
+#include "Light.h"
 #include "TextureShader.h"
 #include "DX11Base.h"
 
@@ -31,6 +34,8 @@ private:
 	Camera* camera;
 	StaticMeshComponent* mesh1;
 	DX11Base* D3D;
+	LightShader* lightShader;
+	Light* light;
 };
 
 #endif

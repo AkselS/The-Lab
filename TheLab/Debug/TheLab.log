@@ -1,19 +1,12 @@
-     1>Project "C:\Users\AkselS\Documents\GitHub\The-Lab\TheLab\TheLab.vcxproj" on node 2 (Build target(s)).
+﻿Build started 10/04/2016 15:41:34.
+     1>Project "C:\Users\w1468851\Desktop\The-Lab\TheLab\TheLab.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         I:\Program Files\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp GameState.cpp Idle.cpp MainMenu.cpp PlayerState.cpp Playing.cpp State.cpp Walking.cpp
-         Game.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt RenderingManager.cpp
+         RenderingManager.cpp
          c:\program files (x86)\windows kits\8.1\include\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         Walking.cpp
-         State.cpp
-         Playing.cpp
-         PlayerState.cpp
-         MainMenu.cpp
-         Idle.cpp
-         GameState.cpp
+     1>c:\users\w1468851\desktop\the-lab\thelab\renderingmanager.cpp(120): warning C4101: 'result' : unreferenced local variable
        Link:
-         I:\Program Files\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\AkselS\Documents\GitHub\The-Lab\Debug\TheLab.exe" /INCREMENTAL /NOLOGO d3d11.lib d3dx11.lib dxerr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\AkselS\Documents\GitHub\The-Lab\Debug\TheLab.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\AkselS\Documents\GitHub\The-Lab\Debug\TheLab.lib" /MACHINE:X86 Debug\CameraComponent.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\w1468851\Desktop\The-Lab\Debug\TheLab.exe" /INCREMENTAL /NOLOGO d3d11.lib d3dx11.lib dxerr.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\w1468851\Desktop\The-Lab\Debug\TheLab.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\w1468851\Desktop\The-Lab\Debug\TheLab.lib" /MACHINE:X86 Debug\CameraComponent.obj
          Debug\Character.obj
          Debug\CollisionComponent.obj
          Debug\CollisionManager.obj
@@ -37,8 +30,9 @@
          Debug\TextureShader.obj
          Debug\Util.obj
          Debug\Walking.obj
-         TheLab.vcxproj -> C:\Users\AkselS\Documents\GitHub\The-Lab\Debug\TheLab.exe
-     1>Done Building Project "C:\Users\AkselS\Documents\GitHub\The-Lab\TheLab\TheLab.vcxproj" (Build target(s)).
+         TheLab.vcxproj -> C:\Users\w1468851\Desktop\The-Lab\Debug\TheLab.exe
+     1>Done Building Project "C:\Users\w1468851\Desktop\The-Lab\TheLab\TheLab.vcxproj" (Build target(s)).
 
 Build succeeded.
 
+Time Elapsed 00:00:01.18

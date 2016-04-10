@@ -105,9 +105,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Game Framework</Filter>
     </ClCompile>
-    <ClCompile Include="CameraComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="TextureComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -128,6 +125,15 @@
     </ClCompile>
     <ClCompile Include="RenderingManager.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LightShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -179,9 +185,6 @@
     <ClInclude Include="Util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CameraComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="TextureComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
@@ -200,12 +203,27 @@
     <ClInclude Include="RenderingManager.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LightShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="texture.ps">
       <Filter>Header Files\Shaders\Pixel Shaders</Filter>
     </None>
     <None Include="texture.vs">
+      <Filter>Header Files\Shaders\Vertex Shaders</Filter>
+    </None>
+    <None Include="light.ps">
+      <Filter>Header Files\Shaders\Pixel Shaders</Filter>
+    </None>
+    <None Include="light.vs">
       <Filter>Header Files\Shaders\Vertex Shaders</Filter>
     </None>
   </ItemGroup>
