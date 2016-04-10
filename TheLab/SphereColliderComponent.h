@@ -22,7 +22,7 @@ public:
 
 	float getRadius();
 
-private:
+protected:
 	float radius;
 };
 

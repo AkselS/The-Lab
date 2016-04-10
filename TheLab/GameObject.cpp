@@ -47,6 +47,38 @@ void GameObject::Render()
 	return;
 }
 
+#pragma region Get/Set functions
+
+D3DXVECTOR3 GameObject::getPosition()
+{
+	return position;
+}
+
+void GameObject::setPosition(D3DXVECTOR3 _position)
+{
+	position = _position;
+}
+
+D3DXVECTOR3 GameObject::getRotation()
+{
+	return rotation;
+}
+
+void GameObject::setRotation(D3DXVECTOR3 _rotation)
+{
+	rotation = _rotation;
+}
+
+D3DXVECTOR3 GameObject::getScale()
+{
+	return scale;
+}
+
+void GameObject::setScale(D3DXVECTOR3 _scale)
+{
+	scale = _scale;
+}
+
 void GameObject::setActive(bool active)
 {
 	isActive = active;
@@ -76,3 +108,5 @@ bool GameObject::getVisible()
 {
 	return visible;
 }
+
+#pragma endregion
