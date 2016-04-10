@@ -18,14 +18,31 @@ CollisionManager& CollisionManager::instance()
 
 void CollisionManager::Update(float dt)
 {
+	
+
 	// Check colliders here
 	for (int i = 0; i < Colliders.size(); i++)
 	{
+		// Clear vector of colliders in Collider[i]
+		int ColliderISize = Colliders[i]->getCollisions()->size();
+		for (int k = 0; k < ColliderISize; k++)
+		{
+			Colliders[i]->getCollisions()->pop_back();
+		}
+		
+		// Check if Collider[i] is colliding with any other collision components
+		// Excludes duplicate checks by using upper traingular
+		// To-Do push [i] into [j] list of colliders and [j] into [i]'s list of colliders
 		for (int j = i + 1; j < Colliders.size(); j++)
 		{
 			// Does Colliders[i] label collide with Colliders[j] label?
 			////Is collider[i] a sphere and Colliders[j] a sphere
 			//////Do sphere to sphere collision check
+			if (sphereToSphereCollision(dynamic_cast<SphereColliderComponent*>(Colliders[i]), dynamic_cast<SphereColliderComponent*>(Colliders[j])))
+			{
+				Colliders[i]->getCollisions()->push_back(Colliders[j]);
+				Colliders[j]->getCollisions()->push_back(Colliders[i]);
+			}
 			////Is collider[i] a sphere and Colliders[j] a cube
 			//////Do sphere to box collision check
 			////Is collider[i] a box and collider[j] a sphere

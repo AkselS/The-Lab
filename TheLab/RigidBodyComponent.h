@@ -9,8 +9,11 @@ public:
 	RigidBodyComponent(float _mass);
 	~RigidBodyComponent();
 
-	void Update(float dt);
+	void Update(float dt, bool isColliding);
 	D3DXVECTOR3 deltaPosition(float dt);
+
+	void addForce(D3DXVECTOR3 _force);
+
 
 #pragma region Get/Set Functions
 
