@@ -43,6 +43,8 @@ bool DX11Base::Initialise(HINSTANCE hInstance, HWND hwnd)
 	hInstance_ = hInstance;
 	hwnd_ = hwnd;
 
+	D3D11_DEPTH_STENCIL_DESC depthDisabledStencilDesc;
+
 	////////////////////
 	// Temp Variables //
 	////////////////////
@@ -354,6 +356,31 @@ bool DX11Base::Initialise(HINSTANCE hInstance, HWND hwnd)
 
 	D3DXMatrixOrthoLH(&orthoMatrix, (float)width, (float)height, screenNear, screenDepth);
 
+	//Clear second depth stencil before parameters
+	ZeroMemory(&depthDisabledStencilDesc, sizeof(depthDisabledStencilDesc));
+
+	depthDisabledStencilDesc.DepthEnable = false;
+	depthDisabledStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+	depthDisabledStencilDesc.DepthFunc = D3D11_COMPARISON_LESS;
+	depthDisabledStencilDesc.StencilEnable = true;
+	depthDisabledStencilDesc.StencilReadMask = 0xFF;
+	depthDisabledStencilDesc.StencilWriteMask = 0xFF;
+	depthDisabledStencilDesc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	depthDisabledStencilDesc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_INCR;
+	depthDisabledStencilDesc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+	depthDisabledStencilDesc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+	depthDisabledStencilDesc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	depthDisabledStencilDesc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_DECR;
+	depthDisabledStencilDesc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+	depthDisabledStencilDesc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+
+	//Create state using device
+	result = d3dDevice->CreateDepthStencilState(&depthDisabledStencilDesc, &depthDisabledStencilState);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -364,6 +391,12 @@ void DX11Base::Shutdown()
 	if (swapChain)
 	{
 		swapChain->SetFullscreenState(false, NULL);
+	}
+
+	if (depthDisabledStencilState)
+	{
+		depthDisabledStencilState->Release();
+		depthDisabledStencilState = 0;
 	}
 
 	if (rasterState)
@@ -487,5 +520,17 @@ void DX11Base::GetVideoCardInfo(char* cardName, int& memory)
 {
 	strcpy_s(cardName, 128, videoCardDescription);
 	memory = videoCardMemory;
+	return;
+}
+
+void DX11Base::TurnZBufferOn()
+{
+	deviceContext->OMSetDepthStencilState(depthStencilState, 1);
+	return;
+}
+
+void DX11Base::TurnZBufferOff()
+{
+	deviceContext->OMSetDepthStencilState(depthDisabledStencilState, 1);
 	return;
 }

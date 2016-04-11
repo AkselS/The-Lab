@@ -5,6 +5,8 @@ RenderingManager::RenderingManager()
 	D3D = 0;
 	camera = 0;
 	mesh1 = 0;
+
+	m_Menu = 0;
 }
 
 RenderingManager::RenderingManager(const RenderingManager&)
@@ -15,7 +17,7 @@ RenderingManager::~RenderingManager()
 {
 }
 
-bool RenderingManager::Initialise(HINSTANCE hInstance, HWND hwnd)
+bool RenderingManager::Initialise(int screenWidth, int screenHeight, HINSTANCE hInstance, HWND hwnd)
 {
 	bool result;
 
@@ -26,7 +28,7 @@ bool RenderingManager::Initialise(HINSTANCE hInstance, HWND hwnd)
 		return false;
 	}
 
-	// Initialize the Direct3D object.
+	// Initialize the Direct3D object
 	result = D3D->Initialise(hInstance, hwnd);
 	if (!result)
 	{
@@ -44,17 +46,32 @@ bool RenderingManager::Initialise(HINSTANCE hInstance, HWND hwnd)
 	// Set the initial position of the camera.
 	camera->Position(XMFLOAT3(0.0f, 0.0f, -10.0f));
 
-	// Create the model object.
-	mesh1 = new StaticMeshComponent;
-	if (!mesh1)
+	//// Create the model object.
+	//mesh1 = new StaticMeshComponent;
+	//if (!mesh1)
+	//{
+	//	return false;
+	//}
+
+	//result = mesh1->Initialise(D3D->GetDevice(), "cube.txt", L"assets/textures/test.dds");
+	//if (!result)
+	//{
+	//	MessageBox(hwnd, "Could not initialize the mesh.", "Error", MB_OK);
+	//	return false;
+	//}
+
+	//Create Menu
+	m_Menu = new MenuMain;
+	if (!m_Menu)
 	{
 		return false;
 	}
 
-	result = mesh1->Initialise(D3D->GetDevice(), "cube.txt", L"assets/textures/test.dds");
+	//Initialise Menu
+	result = m_Menu->Initialise(D3D->GetDevice(), screenWidth, screenHeight, L"../assets/textures/MainMenu.dds", 256, 256);
 	if (!result)
 	{
-		MessageBox(hwnd, "Could not initialize the mesh.", "Error", MB_OK);
+		MessageBox(hwnd, "Could not initialize the bitmap object.", "Error", MB_OK);
 		return false;
 	}
 
@@ -64,6 +81,15 @@ bool RenderingManager::Initialise(HINSTANCE hInstance, HWND hwnd)
 
 void RenderingManager::Shutdown()
 {
+
+	//Release Menu
+	if (m_Menu)
+	{
+		m_Menu->Shutdown();
+		delete m_Menu;
+		m_Menu = 0;
+	}
+
 	if (mesh1)
 	{
 		mesh1->Shutdown();
@@ -116,7 +142,7 @@ bool RenderingManager::Frame()
 
 bool RenderingManager::Render(float rotation)
 {
-	D3DXMATRIX worldMatrix, viewMatrix, projectionMatrix;
+	D3DXMATRIX worldMatrix, viewMatrix, projectionMatrix, orthoMatrix;
 	bool result;
 
 	// Clear the buffers to begin the scene.
@@ -129,6 +155,28 @@ bool RenderingManager::Render(float rotation)
 	camera->GetViewMatrix(&viewMatrix);
 	D3D->GetWorldMatrix(worldMatrix);
 	D3D->GetProjectionMatrix(projectionMatrix);
+
+	D3D->GetProjectionMatrix(orthoMatrix);
+
+	//Turn ZBuffer off before 2D rendering
+	D3D->TurnZBufferOff();
+
+	//Put the bitmap vertex and index buffers on graphics pipeline for drawing
+	result = m_Menu->Render(D3D->GetDeviceContext(), 100, 100);
+	if (!result)
+	{
+		return false;
+	}
+
+	//Render menu with texture shader
+	result = mesh1->Render (D3D->GetDeviceContext(), m_Menu->GetIndexCount(), worldMatrix, viewMatrix, orthoMatrix, m_Menu->GetTexture());
+	if (!result)
+	{
+		return false;
+	}
+
+	//Turn ZBuffer on
+	D3D->TurnZBufferOn();
 
 	// Rotate the world matrix by the rotation value so that the triangle will spin.
 	D3DXMatrixRotationY(&worldMatrix, rotation);

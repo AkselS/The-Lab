@@ -41,6 +41,10 @@ public:
 
 	//virtual void Update(float dt) = 0;
 	//virtual void Render() = 0;
+
+	void TurnZBufferOn();
+	void TurnZBufferOff();
+
 protected:
 	HINSTANCE hInstance_;
 	HWND hwnd_;
@@ -63,6 +67,8 @@ protected:
 	D3DXMATRIX projectionMatrix;
 	D3DXMATRIX worldMatrix;
 	D3DXMATRIX orthoMatrix;
+
+	ID3D11DepthStencilState* depthDisabledStencilState;
 };
 
 #endif

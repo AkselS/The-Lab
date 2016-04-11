@@ -1,10 +1,12 @@
 #include <Windows.h>
 #include <memory>
+#include <stdio.h>
 
 #include "Game.h"
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message,
 	WPARAM wParam, LPARAM lParam);
+
 
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
