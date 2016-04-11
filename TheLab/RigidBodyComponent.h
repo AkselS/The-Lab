@@ -43,6 +43,6 @@ protected:
 
 	bool useGravity;
 
-	const float g = 9.81f;
+	float g = 9.81f;
 };
 

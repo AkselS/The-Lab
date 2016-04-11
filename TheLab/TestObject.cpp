@@ -11,7 +11,7 @@ TestObject::TestObject()
 	visible = true;
 
 	mySphereCollisionComponent = SphereColliderComponent(position, 1.0f, NoLabel);
-	myRigidBody = RigidBodyComponent(1.0f);
+	myRigidBody = RigidBodyComponent();
 }
 
 TestObject::TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale, bool _isActive, bool _updates, bool _visible)
