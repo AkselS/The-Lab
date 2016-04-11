@@ -1,5 +1,6 @@
 #include <Windows.h>
 #include <memory>
+#include <ctime>
 
 #include "Game.h"
 
@@ -54,15 +55,19 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
 
 	MSG msg = { 0 };
 
+	clock_t previous = clock();
 	while (msg.message != WM_QUIT)
 	{
+		clock_t current = clock();
+		double elapsed = float(current - previous) / CLOCKS_PER_SEC;
+		previous = current;
 		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
 		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
 		// Update
-		game->Update(0.0f);
+		game->Update(elapsed);
 		// Draw
 		game->Render();
 	}

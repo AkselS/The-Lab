@@ -78,7 +78,7 @@ void Game::Shutdown()
 
 void Game::Update(float dt)
 {
-	collisionManager->instance().Update(dt);
+	//collisionManager->instance().Update(dt);
 
 
 	return;
