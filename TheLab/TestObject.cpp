@@ -1,6 +1,6 @@
 #include "TestObject.h"
 
-
+#pragma region Constructors/Destructors
 TestObject::TestObject()
 {
 	position = { 0.0f, 0.0f, 0.0f };
@@ -11,6 +11,7 @@ TestObject::TestObject()
 	visible = true;
 
 	mySphereCollisionComponent = SphereColliderComponent(position, 1.0f, NoLabel);
+	myRigidBody = RigidBodyComponent();
 }
 
 TestObject::TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale, bool _isActive, bool _updates, bool _visible)
@@ -23,6 +24,7 @@ TestObject::TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3
 	visible = _visible;
 
 	mySphereCollisionComponent = SphereColliderComponent(position, 1.0f, NoLabel);
+	myRigidBody = RigidBodyComponent(1.0f);
 }
 
 TestObject::TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale)
@@ -35,13 +37,17 @@ TestObject::TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3
 	visible = true;
 
 	mySphereCollisionComponent = SphereColliderComponent(position, 1.0f, NoLabel);
+	myRigidBody = RigidBodyComponent(1.0f);
 }
 
 
 TestObject::~TestObject()
 {
 	mySphereCollisionComponent.~SphereColliderComponent();
+	myRigidBody.~RigidBodyComponent();
 }
+
+#pragma endregion
 
 void TestObject::Update(float dt)
 {

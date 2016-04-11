@@ -23,6 +23,16 @@ void CollisionComponent::Update(D3DXVECTOR3 thisPosition, float dt)
 {
 	// Continually set the position
 	position = thisPosition;
+
+	// Check if it is colliding with anything by checking if the Collision list is empty
+	if (collisions.size() == 0)
+	{
+		isColliding = false;
+	}
+	else
+	{
+		isColliding = true;
+	}
 }
 
 #pragma region Get/Set Functions
@@ -45,6 +55,16 @@ Label CollisionComponent::getLabel()
 void CollisionComponent::setLabel(Label newLabel)
 {
 	myLabel = newLabel;
+}
+
+std::vector<CollisionComponent*>* CollisionComponent::getCollisions()
+{
+	return &collisions;
+}
+
+bool CollisionComponent::getIsColliding()
+{
+	return isColliding;
 }
 
 #pragma endregion

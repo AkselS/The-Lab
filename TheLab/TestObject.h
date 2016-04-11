@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "SphereColliderComponent.h"
+#include "RigidBodyComponent.h"
 
 class TestObject :
 	public GameObject
@@ -40,5 +41,6 @@ public:
 
 protected:
 	SphereColliderComponent mySphereCollisionComponent;
+	RigidBodyComponent myRigidBody;
 };
 
