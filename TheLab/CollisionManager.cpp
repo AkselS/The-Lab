@@ -37,12 +37,16 @@ void CollisionManager::Update(float dt)
 		{
 			// Does Colliders[i] label collide with Colliders[j] label?
 			////Is collider[i] a sphere and Colliders[j] a sphere
-			//////Do sphere to sphere collision check
-			if (sphereToSphereCollision(dynamic_cast<SphereColliderComponent*>(Colliders[i]), dynamic_cast<SphereColliderComponent*>(Colliders[j])))
+			if (dynamic_cast<SphereColliderComponent*>(Colliders[i]) != NULL && dynamic_cast<SphereColliderComponent*>(Colliders[j]) != NULL)
 			{
-				Colliders[i]->getCollisions()->push_back(Colliders[j]);
-				Colliders[j]->getCollisions()->push_back(Colliders[i]);
+				//////Do sphere to sphere collision check
+				if (sphereToSphereCollision(dynamic_cast<SphereColliderComponent*>(Colliders[i]), dynamic_cast<SphereColliderComponent*>(Colliders[j])))
+				{
+					Colliders[i]->getCollisions()->push_back(Colliders[j]);
+					Colliders[j]->getCollisions()->push_back(Colliders[i]);
+				}
 			}
+			
 			////Is collider[i] a sphere and Colliders[j] a cube
 			//////Do sphere to box collision check
 			////Is collider[i] a box and collider[j] a sphere
