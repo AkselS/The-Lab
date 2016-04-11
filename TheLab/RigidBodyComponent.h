@@ -6,7 +6,9 @@ class RigidBodyComponent
 {
 public:
 	RigidBodyComponent();
+	RigidBodyComponent(float _mass, bool _useGravity);
 	RigidBodyComponent(float _mass);
+	RigidBodyComponent(bool _useGravity);
 	~RigidBodyComponent();
 
 	void Update(float dt, bool isColliding);

@@ -42,7 +42,11 @@ bool Game::Initialise(HINSTANCE hInstance, HWND hwnd)
 
 	input->Initialise();
 
-	collisionManager->instance();
+	// Test Code
+	object1 = TestObject(D3DXVECTOR3(0.5f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 1.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f));
+	object2 = TestObject(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 1.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f));
+	collisionManager->instance().addCollider(object1.getSphereColliderComponent());
+	collisionManager->instance().addCollider(object2.getSphereColliderComponent());
 
 	return true;
 }
@@ -74,6 +78,8 @@ void Game::Shutdown()
 
 void Game::Update(float dt)
 {
+	//collisionManager->instance().Update(dt);
+
 
 	return;
 
@@ -93,8 +99,8 @@ void Game::Render()
 	ZeroMemory(&msg, sizeof(MSG));
 
 	done = false;
-	while (!done)
-	{
+	//while (!done)
+	//{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			TranslateMessage(&msg);
@@ -113,7 +119,7 @@ void Game::Render()
 				done = true;
 			}
 		}
-	}
+	//}
 }
 
 bool Game::Frame()

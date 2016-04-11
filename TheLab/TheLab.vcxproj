@@ -73,6 +73,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AABBColliderComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
@@ -101,6 +102,7 @@
     <ClCompile Include="Walking.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABBColliderComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CollisionComponent.h" />

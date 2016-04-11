@@ -10,15 +10,6 @@ CollisionComponent::~CollisionComponent()
 {
 }
 
-void CollisionComponent::Initialise(D3DXVECTOR3 thisPosition)
-{
-	// Set the position
-	position = thisPosition;
-
-	// Register with Collision Manager
-	//CollisionManager::instance().addCollider(this);
-}
-
 void CollisionComponent::Update(D3DXVECTOR3 thisPosition, float dt)
 {
 	// Continually set the position
