@@ -18,18 +18,19 @@ CollisionManager& CollisionManager::instance()
 
 void CollisionManager::Update(float dt)
 {
-	
-
-	// Check colliders here
+	// Clear vector of colliders in every Collider
 	for (int i = 0; i < Colliders.size(); i++)
 	{
-		// Clear vector of colliders in Collider[i]
 		int ColliderISize = Colliders[i]->getCollisions()->size();
 		for (int k = 0; k < ColliderISize; k++)
 		{
 			Colliders[i]->getCollisions()->pop_back();
 		}
-		
+	}
+
+	// Check colliders here
+	for (int i = 0; i < Colliders.size(); i++)
+	{
 		// Check if Collider[i] is colliding with any other collision components
 		// Excludes duplicate checks by using upper traingular
 		// To-Do push [i] into [j] list of colliders and [j] into [i]'s list of colliders
@@ -42,6 +43,7 @@ void CollisionManager::Update(float dt)
 				//////Do sphere to sphere collision check
 				if (sphereToSphereCollision(dynamic_cast<SphereColliderComponent*>(Colliders[i]), dynamic_cast<SphereColliderComponent*>(Colliders[j])))
 				{
+					OutputDebugString("Collision between object 1 and 2");
 					Colliders[i]->getCollisions()->push_back(Colliders[j]);
 					Colliders[j]->getCollisions()->push_back(Colliders[i]);
 				}

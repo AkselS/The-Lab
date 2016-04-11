@@ -4,9 +4,13 @@
 
 #include <Windows.h>
 
+#include <d3d10_1.h>
+#include <D3DX10math.h>
+
 #include "RenderingManager.h"
 #include "InputComponent.h"
 #include "CollisionManager.h"
+#include "TestObject.h"
 
 class Game
 {
@@ -31,6 +35,11 @@ private:
 
 	// Collisions
 	CollisionManager* collisionManager;
+
+#pragma region Test COde for Collision
+	TestObject object1;
+	TestObject object2;
+#pragma endregion
 };
 
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);

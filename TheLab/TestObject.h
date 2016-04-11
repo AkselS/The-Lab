@@ -17,6 +17,10 @@ public:
 
 #pragma region Get/Set Function
 
+	SphereColliderComponent* getSphereColliderComponent();
+
+	RigidBodyComponent* getRigidBodyComponent();
+
 #pragma region Overrides
 	virtual D3DXVECTOR3 getPosition() override;
 	virtual void setPosition(D3DXVECTOR3 _position)override;

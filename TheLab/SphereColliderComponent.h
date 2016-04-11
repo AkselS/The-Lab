@@ -5,7 +5,7 @@
 
 
 class SphereColliderComponent :
-	CollisionComponent
+	public CollisionComponent
 {
 public:
 	SphereColliderComponent();

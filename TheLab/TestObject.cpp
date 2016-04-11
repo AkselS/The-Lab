@@ -11,7 +11,7 @@ TestObject::TestObject()
 	visible = true;
 
 	mySphereCollisionComponent = SphereColliderComponent(position, 1.0f, NoLabel);
-	myRigidBody = RigidBodyComponent();
+	myRigidBody = RigidBodyComponent(false);
 }
 
 TestObject::TestObject(D3DXVECTOR3 _position, D3DXVECTOR3 _rotation, D3DXVECTOR3 _scale, bool _isActive, bool _updates, bool _visible)
@@ -62,6 +62,16 @@ void TestObject::Render()
 }
 
 #pragma region Get/Set functions
+
+SphereColliderComponent* TestObject::getSphereColliderComponent()
+{
+	return &mySphereCollisionComponent;
+}
+
+RigidBodyComponent* TestObject::getRigidBodyComponent()
+{
+	return &myRigidBody;
+}
 
 #pragma region Overrides
 

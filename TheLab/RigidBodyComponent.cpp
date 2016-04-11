@@ -1,10 +1,19 @@
 #include "RigidBodyComponent.h"
 
-
+#pragma region Constructors/Destructors
 RigidBodyComponent::RigidBodyComponent()
 {
 	mass = 1.0f;
 	useGravity = true;
+	velocity = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	acceleration = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	force = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+}
+
+RigidBodyComponent::RigidBodyComponent(float _mass, bool _useGravity)
+{
+	mass = _mass;
+	useGravity = _useGravity;
 	velocity = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	acceleration = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	force = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
@@ -19,9 +28,20 @@ RigidBodyComponent::RigidBodyComponent(float _mass)
 	force = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 }
 
+RigidBodyComponent::RigidBodyComponent(bool _useGravity)
+{
+	mass = 1.0f;
+	useGravity = _useGravity;
+	velocity = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	acceleration = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	force = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+}
+
 RigidBodyComponent::~RigidBodyComponent()
 {
 }
+
+#pragma endregion
 
 void RigidBodyComponent::Update(float dt, bool isColliding)
 {

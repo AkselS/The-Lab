@@ -11,7 +11,7 @@ SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 parentPosition, flo
 	myLabel = NoLabel;
 	
 	// Required Overrides
-	radius = radius;
+	radius = _radius;
 
 	// Optional Overrides(null)
 
@@ -23,7 +23,7 @@ SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 parentPosition, flo
 	// Defaults (Null)
 	
 	// Required Overrides
-	radius = radius;
+	radius = _radius;
 
 	// Optional Overrides
 	myLabel = _label;
@@ -37,7 +37,7 @@ SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 parentPosition, flo
 	// Defaults
 	
 	// Required Overrides
-	radius = radius;
+	radius = _radius;
 
 	// Optional Overrides
 	myLabel = _label;
@@ -52,7 +52,7 @@ SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 parentPosition, flo
 	myLabel = NoLabel;
 
 	// Required Overrides
-	radius = radius;
+	radius = _radius;
 
 	// Optional Overrides
 

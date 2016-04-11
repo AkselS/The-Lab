@@ -24,8 +24,6 @@ public:
 
 	virtual void Update(D3DXVECTOR3 thisPosition, float dt);
 
-
-
 #pragma region Get/Set functions
 
 	virtual D3DXVECTOR3 getPosition();
