@@ -5,58 +5,59 @@ SphereColliderComponent::SphereColliderComponent()
 {
 }
 
-SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 parentPosition, float _radius)
+SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 _parentPosition, float _radius)
 {
 	// Defaults
 	myLabel = NoLabel;
 	
 	// Required Overrides
+	position + _parentPosition;
 	radius = _radius;
 
 	// Optional Overrides(null)
 
-	this->Initialise(parentPosition);
 }
 
-SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 parentPosition, float _radius, Label _label, D3DXVECTOR3 _offSet)
+SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 _parentPosition, float _radius, Label _label, D3DXVECTOR3 _offSet)
 {
 	// Defaults (Null)
 	
 	// Required Overrides
+	position = _parentPosition + _offSet;
 	radius = _radius;
 
 	// Optional Overrides
 	myLabel = _label;
 
-	this->Initialise(parentPosition + _offSet);
 
 }
 
-SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 parentPosition, float _radius, Label _label)
+SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 _parentPosition, float _radius, Label _label)
 {
 	// Defaults
 	
 	// Required Overrides
+	position = _parentPosition;
 	radius = _radius;
 
 	// Optional Overrides
 	myLabel = _label;
 
-	this->Initialise(parentPosition);
 
 }
 
-SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 parentPosition, float _radius, D3DXVECTOR3 _offSet)
+SphereColliderComponent::SphereColliderComponent(D3DXVECTOR3 _parentPosition, float _radius, D3DXVECTOR3 _offSet)
 {
 	// Defaults
 	myLabel = NoLabel;
 
 	// Required Overrides
+	position = _parentPosition + _offSet;
 	radius = _radius;
 
 	// Optional Overrides
 
-	this->Initialise(parentPosition + _offSet);
+	
 
 }
 
@@ -66,13 +67,9 @@ SphereColliderComponent::~SphereColliderComponent()
 
 #pragma endregion
 
-void SphereColliderComponent::Initialise(D3DXVECTOR3 thisPosition)
-{
-	CollisionComponent::Initialise(thisPosition);
-}
-
 void SphereColliderComponent::Update(D3DXVECTOR3 thisPosition, float dt)
 {
+	// Calls base function for shared update logic
 	CollisionComponent::Update(thisPosition, dt);
 }
 

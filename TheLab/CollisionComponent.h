@@ -19,9 +19,7 @@ class CollisionComponent
 public:
 	CollisionComponent();
 	~CollisionComponent();
-
-	virtual void Initialise(D3DXVECTOR3 thisPosition);
-
+	
 	virtual void Update(D3DXVECTOR3 thisPosition, float dt);
 
 #pragma region Get/Set functions
@@ -41,8 +39,13 @@ protected:
 	// To be pushed and popped to by CollisionManager (Clears on Update)
 	std::vector<CollisionComponent*> collisions;
 
+	// Return true if there are colliders in collisions
 	bool isColliding;
+
+	// Center for sphere, bottom left towards screen for AABB
 	D3DXVECTOR3 position;
+
+	// For checking if other colliders will collide with this one
 	Label myLabel;
 };
 
